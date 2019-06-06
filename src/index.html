@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>varmilo机械键盘</title>
+    <link rel="stylesheet" href="/libs/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header"></header>
+    <!-- 主题内容 -->
+    <main class="main" >
+            <div id = 'main-box'></div>
+
+        <!-- 模板开始 -->
+
+        <script type="text/html" id="ByTemplate">
+            <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {{each res item}}
+                        <div class="swiper-slide">
+                            <a class='swiper-slide-a' href="javascript:;">
+                                <img class='swiper-slide-a-img' src="{{item.image}}">
+                            </a>
+                            
+                        </div>
+                        {{/each}}
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
+                    
+                    <!-- 如果需要导航按钮 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    
+                
+            </div>
+
+        </script>
+        <!-- 模板结束 -->
+        <!-- 列表区域 -->
+        <div class="main-list" id='listBox'>
+            <div class="main-list-title">
+                <h1>主题键盘</h1>
+            </div>
+            <div class="main-list-top">
+                <div class="main-list-top-left">
+                    <div class="main-list-top-left-img1 imgBox">
+                        <img src="/images/list1.png" alt="">
+                        <div class="main-list-top-left-img1-shade shades"></div>
+                        <a class="listsBtn" href="javascript:;">主题键盘 &gt</a>
+                    </div>
+                    <div class="main-list-top-left-img2 imgBox">
+                            <img src="/images/list3.png" alt="">
+                            <div class="main-list-top-left-img2-shade shades"></div>
+                            <a class="listsBtn" href="javascript:;">主题键盘 &gt</a>
+                    </div>
+                </div>
+                <div class="main-list-top-right">
+                    <div class="main-list-top-right-img3 imgBox">
+                            <img src="/images/list2.png" alt="">
+                            <div class="main-list-top-right-img3-shade shades"></div>
+                            <a class="listsBtn" href="javascript:;">主题键盘 &gt</a>
+                    </div>
+                    <div class="main-list-top-right-img4 imgBox">
+                            <img src="/images/list4.png" alt="">
+                            <div class="main-list-top-right-img4-shade shades"></div>
+                            <a class="listsBtn" href="javascript:;">主题键盘 &gt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-list-bottom">
+                <div class="main-list-bottom-img5 imgBox">
+                    <img src="/images/list5.png" alt="">
+                    <div class="main-list-bottom-img5-shade shades"></div>
+                    <a class="listsBtn" href="javascript:;">主题键盘 &gt</a> 
+                </div>
+                <div class="main-list-bottom-img6 imgBox">
+                    <img src="/images/list6.png" alt="">
+                    <div class="main-list-bottom-img6-shade shades"></div>
+                    <a class="listsBtn" href="javascript:;">主题键盘 &gt</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 尾部 -->
+    <footer class="footer"></footer>
+    <script src="libs/require/require.js" data-main="js/index"></script>
+</body>
+</html>

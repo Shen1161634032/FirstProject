@@ -1,0 +1,178 @@
+
+.header{
+    height:73px;
+    
+    zoom: 1;
+    min-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    background:#fff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    &-logo{
+        width: 252px;
+        height: 46px;
+        a{  
+            display: block;
+            width: 100%;
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    }
+    &-nav{
+        height: 45px;
+        ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            line-height: 45px;
+            li{
+                height: 100%;
+                position: relative;
+            
+                a{
+                    display: block;
+                    height: 100%;
+                    color: #000000;
+                padding: 0 15px; 
+                }
+                .header-nav-two-product{
+                    width: 161px;
+                    height: 216px;
+                    position: absolute;
+                    background: #fff;
+                    z-index: 111;
+                    overflow: hidden;
+                    top: 45px;
+                    left: 0;
+                    border: 1px solid #ccc;
+                    box-shadow: 1px 1px 2px  #ccc;
+                    dt{
+                        width: 159px;
+                        height: 62px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            padding: 3px auto; 
+                        }
+                    }
+                    dd{
+                    
+                        height: 30px;
+                        
+                        a{  
+                            color: #000000;
+                            padding: 5px 0;
+                            height: 30px;
+                            line-height: 20px;
+                        }
+                        .ac{
+                            color: #fff;
+                            
+                            transition: 1s;
+                            
+                        }
+                    }
+                }
+                .header-nav-three-Custom{
+                    position: absolute;
+                    z-index: 111;
+                    background: #fff;
+                    top: 45px;
+                    width: 153px;
+                    height: 185px;
+                    dt{
+                        width: 151px;
+                        height: 59px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            margin: 3px auto;
+                        }
+                        
+                    }
+                    dd{
+                
+                        position: relative;
+                        
+                        
+                        a{
+                            color: #000000;
+                            padding: 5px 0; 
+                            height: 30px;
+                            line-height: 20px;
+                        }
+                        .ac{
+                            
+                            color: #fff;
+
+                        
+                        }
+                        
+
+                        
+                        
+                    }
+                    .ac{
+                        background: #000;
+                        color: #fff;
+                        top:10px;
+                        transition: 1s;
+                    }
+                
+
+                }
+                .ac{
+                    background: #000;
+                    color: #fff;
+                    transition: 1s;
+                }
+            
+            }
+        }
+    }
+    &-search{
+        height: 34px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-form{
+            margin-left:10px ;
+            height: 100%;
+            position: relative;
+            input{
+                height: 100%;
+                border:none;
+                outline: none;
+                border: 1px solid #ccc;
+                border-radius:50px;
+                padding-left:5px; 
+            }
+            span{
+                position: absolute;
+                font-size: 16px;
+                top: 9px;
+                left: 135px;
+            }
+        }
+        &-skip{
+            a {
+                padding: 10px 10px;
+                color: #000000;
+            }
+            .ac{
+                background: #000000;
+                color: #fff;
+                transition: 1s;
+            }
+        }
+    }
+}
+//切换样式

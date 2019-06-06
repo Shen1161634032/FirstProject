@@ -1,0 +1,84 @@
+@import "model/reset.scss";
+@import "model/footer.scss";
+@import "model/header.scss";
+
+.main{
+    &-title{
+        width: 100%;
+        height: 90px;
+        background: #000;
+        color: #fff;
+        &-top{
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            font-size: 18px;
+        }
+        &-bottom{
+            height: 55px;
+            &-btnBox{
+                height: 100%;
+                margin: 0 auto;
+                width: 358px;
+                font-size: 16px;
+                text-align: center;
+                &-keyboard{
+                    padding:10px 0 ;
+                    float: left;
+                    a{
+                        color: #fff;
+                    }
+                }
+                .ac{
+                    border-bottom:2px solid  red;
+                }
+                &-mousePad{
+                    padding: 10px 0;
+                    float:right;
+                    a{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    &-filtrate{
+        display: flex;
+        justify-content: space-around;
+        &-btn{
+            margin-top: 30px ;
+            transition: 0.3s;
+            height: 68px;
+            width: 226px;
+            text-align: center;
+            line-height: 68px ;
+            border:1px solid #ccc; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                padding-left:10px; 
+            }
+            .p1{
+                font-weight: 600;
+            }
+        }  
+    }
+    &-wrap{
+        display: flex;
+        justify-content: space-around;
+        &-select{
+            height: 68px;
+            width: 226px;
+            text-align: center;
+            background: #ccc;
+            display: none;
+            p{
+                height: 50%;
+                text-align: center;
+                line-height: 34px;
+            }
+        }
+    }
+}
+

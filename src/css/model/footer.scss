@@ -1,0 +1,79 @@
+.footer{
+    height: 310px;
+    width: 100%;
+    background: #000;
+    color: #999;
+    font-size: 13px;
+    &-top{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        &-left{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &-dizhi{
+                width: 48px;
+                height: 39px;
+            }   
+        }
+        &-right{
+            width: 50%;
+            height: 100%;
+            border-left: 1px solid #ccc;
+            float: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &-dianhua{
+                width: 44px;
+                height: 48px;
+            }      
+        }
+    }
+    &-bottom{
+        height: 50%;
+        width: 100%;
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        &-payment{
+            span{
+                    padding: 0 5px;
+                    width: 15px;
+                    height: 12px;
+                img{
+                    width: 15px;
+                    height: 12px;
+                }
+            }
+        }
+        &-zhifu{
+            width: 44px;
+            height: 40px;
+        }
+        &-hint{
+            &-a{
+                float: left;
+                width: 38px;
+                height: 36px; 
+                &-govIcon{
+                    width: 38px;
+                    height: 36px;
+                }
+            }
+            p{
+                float: left;
+                padding-left:5px ; 
+                line-height: 36px;
+                
+            }
+        }
+    }
+}
