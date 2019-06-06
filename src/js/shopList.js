@@ -3,10 +3,10 @@ require(['./config'], ()=>{
         class ListShop {
             constructor(){
                 this.btnBox = $('#btnBox');
-               
-                this.btnState = true ;
+                console.log( $('.navSelectBtn'));
+                this.bindEvents()
+                this.filtrateWrap =  $('#filtrateWrap');
                 
-                this.bindEvents();
             }
             bindEvents(){
                 this.btnBox.on('click','.btnBox-child',function(){
@@ -14,7 +14,13 @@ require(['./config'], ()=>{
 
                 })
                 
-            
+                $('#filtrateWrap').on('click','.navSelectBtn',function(){
+                $(this).siblings().fadeToggle();
+                }).on('mouseenter','.navSelectBtn',function(){
+                    $(this).css({background:'orange'})
+                }).on('mouseleave','.navSelectBtn',function(){
+                    $(this).css({background:''})
+                })
             }
         }
         new ListShop
