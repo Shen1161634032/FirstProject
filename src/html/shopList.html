@@ -41,6 +41,63 @@
                     <div  class="main-filtrate-wrap-select"> <p>无灯</p><p>有灯</p></div>
             </div>
         </div>
+        <!-- 主要内容 -->
+        <div id='Content' class="main-content">
+           
+            <!-- <ul class="main-content-list">
+                <li  class="main-content-list-shop">
+                    <a class="main-content-list-shop-link" href="javascript:;">
+                        <div class="main-content-list-shop-link-box">
+                            <img src="/images/list5.png" alt="">
+                            <hr>
+                            <p>MIYA PRO 樱花</p>
+                        
+                        <div class="main-content-list-shop-link-box-skip">了解&nbsp;|&nbsp;购买</div>
+                    </div>    
+                    </a>
+                </li>
+                <li  class="main-content-list-shop">
+                        <a class="main-content-list-shop-link" href="javascript:;">
+                            <div class="main-content-list-shop-link-box">
+                                <img src="/images/list5.png" alt="">
+                                <hr>
+                                <p>MIYA PRO 樱花</p>
+                            
+                            <div class="main-content-list-shop-link-box-skip">了解&nbsp;|&nbsp;购买</div>
+                        </div>    
+                        </a>
+                    </li>
+                    <li  class="main-content-list-shop">
+                            <a class="main-content-list-shop-link" href="javascript:;">
+                                <div class="main-content-list-shop-link-box">
+                                    <img src="/images/list5.png" alt="">
+                                    <hr>
+                                    <p>MIYA PRO 樱花</p>
+                                
+                                <div class="main-content-list-shop-link-box-skip">了解&nbsp;|&nbsp;购买</div>
+                            </div>    
+                            </a>
+                        </li>
+            </ul> -->
+        
+        </div>
+        <script type="text/html"  id="ByTemplate">
+            <ul  class="main-content-list">
+                {{each res item}}
+                <li  class="main-content-list-shop">
+                    <a class="main-content-list-shop-link" href="javascript:;">
+                        <div class="main-content-list-shop-link-box">
+                            <img src="{{item.image}}" alt="">
+                            <hr>
+                            <p>{{item.name}}</p>
+                        
+                        <div class="main-content-list-shop-link-box-skip">了解&nbsp;|&nbsp;购买</div>
+                    </div>    
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </script>
         
     </main>
     <footer class="footer"></footer>

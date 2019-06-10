@@ -3,9 +3,28 @@ require(['./config'], ()=>{
         class ListShop {
             constructor(){
                 this.btnBox = $('#btnBox');
-                console.log( $('.navSelectBtn'));
-                this.bindEvents()
+                this.receiveData();
+                this.ul = $('#Content')
+                console.log(this.ul)
                 this.filtrateWrap =  $('#filtrateWrap');
+                
+            }
+            //接收后端数据
+            receiveData(){
+                $.get(url.baseUrl+'/list/get',resp =>{
+                    if(resp.res_code===200){
+                        this.Apply(resp.res_body);
+                        console.log(resp);
+                    }
+                })
+                
+            }
+            //渲染content页面
+            Apply (res){
+                let html = template('ByTemplate',{res})
+                $(".main-content").html(html);
+                this.bindEvents();
+
                 
             }
             bindEvents(){
@@ -20,6 +39,13 @@ require(['./config'], ()=>{
                     $(this).css({background:'orange'})
                 }).on('mouseleave','.navSelectBtn',function(){
                     $(this).css({background:''})
+                })
+                this.ul.on('mouseenter','li',function(){
+                    console.log(this)
+                    $(this).css({top:"-10px"})
+                }).on('mouseleave','li',function(){
+                    console.log(this)
+                    $(this).css({top:"0px"})
                 })
             }
         }
