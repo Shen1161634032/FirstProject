@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>varmilo机械键盘</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <header class="header"></header>
+    <main class="main">
+        <div class="main-top">
+            <h1><span class="main-top-type"><a href="javascript:;">20%产品</a></span><span class="main-top-Version">--VB21M 樱花</span></h1>
+        </div>
+        <div class="main-box">
+        
+        </div>
+        <script type="text/html" id='ByTemplate'> 
+            
+        
+            <div class="main-box-left">
+            
+	            <div id="examples">
+	
+                    <ul id="etalage">
+                        {{each image item}}
+                        <li>
+                            <img class="etalage_thumb_image" src="{{item.image_list}}" />
+                            <img class="etalage_source_image" src="{{item.image_list}}"  />
+                        </li>
+                        {{/each}}
+            
+                
+            </ul>
+    
+            
+        
+    
+        </div>
+            </div>
+            <div class="main-box-right">
+                <div  class="main-box-right-top">
+                    <p class="main-box-right-top-collect"><span class="glyphicon glyphicon-heart"></span> 收藏</p>
+                    <p class="main-box-right-top-share"><span class='glyphicon glyphicon-new-window'></span> 分享</p>
+                </div>
+                <div class="main-box-right-title">
+                    <h1>{{describe}}</h1>
+                </div>
+                <div  class="main-box-right-brief">
+                    <h3>产品简介</h3>
+                    {{each intro item}}
+                    <p>——<span>{{item.intro_child}}</span></p>
+                    {{/each}}
+                </div>
+                <hr>
+                <div class="main-box-right-type">
+                    <h4>选择轴体：</h4>
+                    <ul class="main-box-right-type-list">
+                        <span  class="main-box-right-type-list-btn1">&lt;</span>
+                        <li><img src="/images/corporaAxillaria1.png" alt=""></li>
+                        <li><img src="/images/corporaAxillaria2.png" alt=""></li>
+                        <li><img src="/images/corporaAxillaria3.png" alt=""></li>
+                        <li><img src="/images/corporaAxillaria4.png" alt=""></li>
+                        <span  class="main-box-right-type-list-btn1">&gt;</span>
+                    </ul>
+                </div>
+                <hr>
+                <div class="main-box-right-price">
+                    促：￥<span>{{price}}</span>
+                </div>
+                <div class="main-box-right-num">
+                    
+                        <label>数量：<input type="text" name="" id="" value="1"></label> 
+                        <button class="main-box-right-num-add" >+</button>
+                        <button class="main-box-right-num-reduce" >-</button>
+                    
+                    <p class="main-box-right-num-sum">库存:<span>{{num}}</span></p>
+                </div>
+
+                <div class="main-box-right-btn">
+                    <button class="main-box-right-btn-append">加入购物车</button>
+                    <button class="main-box-right-btn-buy">立即购买</button>
+                </div>
+            </div>
+        </script> 
+        <div class="main-parameter">
+            <img src="/images/parameter.png" alt="">
+        </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="/libs/require/require.js" data-main="/js/detail"></script>
+</body>
+</html>

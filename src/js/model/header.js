@@ -10,6 +10,7 @@ define(['jquery'], () => {
                 this.select1.hide();
                 this.select2.hide();
                 this.bindEvents();
+                this.IsLogIn();
             })
         }
         loadHeader (){
@@ -76,6 +77,25 @@ define(['jquery'], () => {
                     $(target).removeClass('ac');
                 }
             })
+        }
+        IsLogIn(){
+            let a =document.cookie,
+
+                obj={};
+            
+            if(a){
+
+            
+            a.split('; ').forEach((item)=>{
+                var arr2 =item.split('=')
+                obj[arr2[0]]=arr2[1];
+            })
+            
+            $('#user').css({display:"block"}).children('#Name').html(obj.username);
+            $('#skip').css({display:"none"});
+        }
+            
+
         }
         
     }

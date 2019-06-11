@@ -7,7 +7,8 @@ require.config({
         url:'js/model/url',
         template:'libs/art-template/template-web',
         swiper:'libs/swiper/js/swiper.min',
-        cookie:'libs/jquery-plugins/jquery.cookie'
+        cookie:'libs/jquery-plugins/jquery.cookie',
+        etalage: 'libs/jquery-plu-etalage/jquery.etalage.min'
         
         
     },
@@ -16,6 +17,9 @@ require.config({
     shim: {
         cookie: {
         deps: ['jquery']
+        },
+        etalage:{
+            deps: ['jquery']
         }
     }
 

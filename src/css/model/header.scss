@@ -164,6 +164,7 @@
             }
         }
         &-skip{
+           
             a {
                 padding: 10px 10px;
                 color: #000000;
@@ -173,6 +174,26 @@
                 color: #fff;
                 transition: 1s;
             }
+            &-logoin{
+                padding-left:20px; 
+            }
+        
+        
+            
+        }
+        &-user{
+            display: none;
+            &-name{
+
+                float: left;
+                padding-left:20px; 
+            }
+            &-shopCar{
+                float: right;
+                padding: 0 20px;
+                font-size: 20px;
+            }
+        
         }
     }
 }
