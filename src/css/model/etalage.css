@@ -18,7 +18,7 @@
 
 /* Large thumbnail: */
 #etalage .etalage_thumb{
-	background: white url(../images/loading.gif) center no-repeat;
+	background: white  ;
 	border: 1px solid #ddd;
 	padding: 6px;
 	-webkit-box-shadow: 0 0 10px #ddd;
@@ -49,7 +49,7 @@
 /* Zoomed image area: */
 #etalage .etalage_zoom_area,
 .etalage_zoom_area{
-	background: white url(../images/loading.gif) center no-repeat;
+	background: white ;
 	border: 1px solid #ddd;
 	padding: 6px;
 	-webkit-box-shadow: 0 0 10px #ddd;
@@ -64,18 +64,18 @@
 }
 
 /* Icon that will apear at the left bottom of the large thumbnail (optional): */
-#etalage .etalage_icon{
+/* #etalage .etalage_icon{
 	background: url(../images/zoom.png) no-repeat;
 	width: 14px;
 	height: 14px;
-}
+} */
 
 /* Hint that will apear at the top right of the large thumbnail (optional): */
-#etalage .etalage_hint{
+/* #etalage .etalage_hint{
 	background: url(../images/hint.gif) no-repeat;
 	width: 130px;
 	height: 57px;
-}
+} */
 
 /* Description area (optional) */
 #etalage .etalage_description{

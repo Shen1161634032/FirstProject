@@ -11,6 +11,7 @@ define(['jquery'], () => {
                 this.select2.hide();
                 this.bindEvents();
                 this.IsLogIn();
+                this.getData();
             })
         }
         loadHeader (){
@@ -19,6 +20,52 @@ define(['jquery'], () => {
                     resolve();
                 })
             })
+        }
+        getData(){
+            $('#header-search-form-text').on('keydown',function(){
+                var stockPile =$('#header-search-form-text').val();
+                $.getJSON(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${stockPile}&cb=?` ,
+                    function (returnData) {
+                        var arr =returnData.s;
+                        $('#select').html('');
+                        arr.forEach(item=>{
+                            $('<li/>').html(item).on('mouseenter',function(){
+                                $(this).css({background:'#ccc'})
+                            }).on('mouseleave',function(){
+                                $(this).css({background:''})
+                            }).on('mousedown',function(){
+                                $('#header-search-form-text').val( $(this).html()) 
+                            }).appendTo($('#select'))
+                        })
+                    }
+                );
+            }) 
+            $('#header-search-form-text').on('focus',function(){
+                var stockPile =$('#header-search-form-text').val();
+                $.getJSON(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${stockPile}&cb=?` ,
+                    function (returnData) {
+                        var arr =returnData.s;
+                        $('#select').html('');
+                        arr.forEach(item=>{
+                            $('<li/>').html(item).on('mouseenter',function(){
+                                $(this).css({background:'#ccc'})
+                            }).on('mouseleave',function(){
+                                $(this).css({background:''})
+                            }).on('mousedown',function(){
+                                $('#header-search-form-text').val( $(this).html()) 
+                            }).appendTo($('#select'))
+                        })
+                    }
+                );
+            }) 
+            $('#header-search-form-text').on('blur',function(){
+                var stockPile =$('#header-search-form-text').val();
+                $.getJSON(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${stockPile}&cb=?` ,
+                    function (returnData) {
+                        $('#select').html('')
+                    }
+                );
+            }) 
         }
         bindEvents () {
             this.header.on('mouseover', e => {

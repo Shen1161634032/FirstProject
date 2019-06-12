@@ -3,13 +3,29 @@ require(['./config'], ()=>{
         class Detail{
             constructor(){
                 this. receiveData();
+                this.getModel();
 
             }
             receiveData(){
                 $.get(url.baseUrl+'/list/get',resp =>{
+                    
                     if(resp.res_code===200){
-                        this.Apply(resp.res_body[0]);
-                        console.log(resp);
+                        let model=window.location.search,
+                            obj ={},
+                            arr;
+                        model=model.slice(1);
+                        model=model.split('&');
+                        //console.log(model);
+                        model.forEach(item => {
+                            arr=item.split('=');
+                            obj[arr[0]]=arr[1];
+                        });
+                        this.id=Number(obj.id)
+                        //console.log(this.id)
+                        this.Apply(resp.res_body[this.id-1]);
+                       // console.log(resp);
+                        console.log(resp.res_body[this.id-1]);
+                        this.resp =resp.res_body[this.id-1];
                         
                     }
                 })
@@ -27,12 +43,93 @@ require(['./config'], ()=>{
 
             })
             $(".main-box").html(html);
-            
+            this.bindEvents();
             this.magnify();
                 
             }
+            bindEvents(){
+                //修改商品个数
+                $('#addData').on('click',()=>{
+                    let productNum = $('#productNum').val(),
+                        residue =$('#residue').html();
+                        console.log(residue)
+                        if(productNum<residue){
+                            $('#productNum').val(Number($('#productNum').val())+1);
+                        }else{
+                            $('#productNum').val( residue);
+                        }
+                })
+                $('#reduceData').on('click',()=>{
+                    let productNum = $('#productNum').val();
+                    if(productNum>1){
+                        $('#productNum').val(Number($('#productNum').val())-1);
+                    }else{
+                        $('#productNum').val(1);
+                    }
+                })
+                $('#appendCar').on('click',()=>{
+                    //先获取当前要加入购物车的数量和数据
+                    this.detail ={
+                        id:this.id,
+                        image:this.resp.details.image[0],
+                        title:this.resp.name,
+                        price:this.resp.details.price,
+                        num:Number($('#productNum').val())
+
+                    }
+                    // 把数据存localStorage
+                    // 先取出来，判断是否为空
+                    let cartList = localStorage.getItem('cart')
+                    if(cartList){
+                        //已存过数据
+                        cartList = JSON.parse(cartList) 
+                        //记录下标
+                        let i = -1;
+                        //遍历查看是否有相同数据
+                        let isExist = cartList.some((cart,index)=>{
+
+                            i=index;
+                            return cart.id === this.detail.id;
+                        })
+                        if(isExist){
+
+                            //存在相同数据
+                            cartList[i].num += this.detail.num;
+                        }else{
+                            //不存在相同数据
+                            cartList.push(this.detail)
+                        }
+                        //用修改后的值覆盖之间的值
+                        localStorage.setItem('cart',JSON.stringify(cartList))
+
+                    }else{
+                        //未存过购物车
+                        localStorage.setItem('cart',JSON.stringify([this.detail]))
+                    }
+
+
+                })
+
+            }
+            getModel(){
+                //console.dir(window.location);
+                    let model=window.location.search,
+                        obj ={},
+                        arr;
+                    model=model.slice(1);
+                    model=model.split('&');
+                    //console.log(model);
+                    model.forEach(item => {
+                        arr=item.split('=');
+                        obj[arr[0]]=arr[1];
+                    });
+                    //console.log(obj) ;
+                    $('#titleModel').html(obj.model);
+                    $('.buyModel').attr('href',`http://localhost:888/html/shopList.html?model=${obj.model}`)
+                    
+                }
             magnify(){
-                $(document).ready(function($){
+                $(document).ready(function(){
 
                     $('#etalage').etalage({
                         thumb_image_width: 400,

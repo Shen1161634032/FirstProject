@@ -1,0 +1,108 @@
+@import "model/reset.scss";
+@import "model/footer.scss";
+@import "model/header.scss";
+
+.main{
+    background: #f4f4f4;
+    overflow: hidden;
+    &-box{
+        width: 850px;
+        margin:50px auto;
+        background: #fff;
+        &-head{
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            margin: 0 10px;
+            border-bottom: 1px solid #f4f4f4;
+            h1{
+                font-size: 30px;
+            }
+        }
+        &-shopList{
+            padding: 10px 0;
+            width: 100%;
+            &-shop{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height:113px ;
+                padding: 0 10px;
+                &-img{
+                    width: 99px;
+                    height: 113px;
+                }
+                &-pitch{
+                    width: 15px;
+                    height: 15px;
+                    
+                }
+                &-wrap{
+                    width: 117px;
+                    height: 37px;
+                    border: 1px solid #f4f4f4;
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    line-height: 37px;
+                    font-size: 18px;
+                    &-subtract{
+                        flex: 1;
+                        height: 100%;
+
+                    }
+                    &-num{
+                        flex: 2;
+                        height: 100%;
+                    }
+                    &-plus{
+                        flex:1;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        &-foot{
+            height: 66px;
+            margin: 0 10px ;
+            line-height: 66px;
+            border-top: 1px solid #f4f4f4; 
+            a{
+                
+            }
+        }
+    }
+    &-calc{
+        width: 850px;
+        height: 84px;
+        margin: 0 auto;
+        padding: 0 10px;
+        background: #fff;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        &-sum{
+            &-price{
+                color: red;
+                font-size: 25px;
+            }
+            
+            
+        }
+        &-all{
+            width: 15px;
+            height: 15px;
+        }
+        &-btn{
+            width: 140px;
+            height: 70px;
+            background: #ac2925;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            line-height: 77px;
+
+        }   
+    }
+}

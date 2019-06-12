@@ -13,7 +13,7 @@
     <header class="header"></header>
     <main class="main">
         <div class="main-top">
-            <h1><span class="main-top-type"><a href="javascript:;">20%产品</a></span><span class="main-top-Version">--VB21M 樱花</span></h1>
+            <h1><span class="main-top-type"><a class="buyModel" href="http://localhost:888/html/shopList.html?model=20%"><span id='titleModel'></span> 产品</a></span><span id='product' class="main-top-Version">--VB21M 樱花</span></h1>
         </div>
         <div class="main-box">
         
@@ -73,15 +73,15 @@
                 </div>
                 <div class="main-box-right-num">
                     
-                        <label>数量：<input type="text" name="" id="" value="1"></label> 
-                        <button class="main-box-right-num-add" >+</button>
-                        <button class="main-box-right-num-reduce" >-</button>
+                        <label>数量：<input id='productNum' type="text" name="" id="" value="1"></label> 
+                        <button id='addData' class="main-box-right-num-add" >+</button>
+                        <button id='reduceData' class="main-box-right-num-reduce" >-</button>
                     
-                    <p class="main-box-right-num-sum">库存:<span>{{num}}</span></p>
+                    <p class="main-box-right-num-sum">库存:<span id='residue'>{{num}}</span></p>
                 </div>
 
                 <div class="main-box-right-btn">
-                    <button class="main-box-right-btn-append">加入购物车</button>
+                    <button id ='appendCar' class="main-box-right-btn-append">加入购物车</button>
                     <button class="main-box-right-btn-buy">立即购买</button>
                 </div>
             </div>

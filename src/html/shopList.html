@@ -14,7 +14,7 @@
         <!-- 导航 -->
         <div class="main-title">
             <div class="main-title-top">
-                <h3>80%产品</h3>
+                <h3 ><span id='titleModel'></span>产品</h3>
             </div>
             <div class="main-title-bottom">
                 <div id="btnBox" class="main-title-bottom-btnBox">
@@ -85,11 +85,11 @@
             <ul  class="main-content-list">
                 {{each res item}}
                 <li  class="main-content-list-shop">
-                    <a class="main-content-list-shop-link" href="javascript:;">
+                    <a  class="main-content-list-shop-link buyModel" href="http://localhost:888/html/shopList.html?id=1&model=20%&name={{item.name}}">
                         <div class="main-content-list-shop-link-box">
                             <img src="{{item.image}}" alt="">
                             <hr>
-                            <p>{{item.name}}</p>
+                            <p class='product'>{{item.name}}</p>
                         
                         <div class="main-content-list-shop-link-box-skip">了解&nbsp;|&nbsp;购买</div>
                     </div>    
@@ -101,6 +101,6 @@
         
     </main>
     <footer class="footer"></footer>
-    <script src="/libs/require/require.js" data-main="/js/detail"></script>
+    <script src="/libs/require/require.js" data-main="/js/shopList"></script>
 </body>
 </html>

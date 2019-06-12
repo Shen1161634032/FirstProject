@@ -6,8 +6,9 @@ require(['./config'], ()=>{
                 this.receiveData();
                 this.ul = $('#Content')
                 console.log(this.ul)
-                this.filtrateWrap =  $('#filtrateWrap');
                 
+                this.filtrateWrap =  $('#filtrateWrap');
+            
             }
             //接收后端数据
             receiveData(){
@@ -24,7 +25,7 @@ require(['./config'], ()=>{
                 let html = template('ByTemplate',{res})
                 $(".main-content").html(html);
                 this.bindEvents();
-
+                this.getModel();
                 
             }
             bindEvents(){
@@ -41,12 +42,48 @@ require(['./config'], ()=>{
                     $(this).css({background:''})
                 })
                 this.ul.on('mouseenter','li',function(){
-                    console.log(this)
-                    $(this).css({top:"-10px"})
-                }).on('mouseleave','li',function(){
-                    console.log(this)
-                    $(this).css({top:"0px"})
+                    //console.log(this)
+                    console.log() 
+                    $(this).css({
+                        top:"-10px",
+                        boxShadow:'0 0px 3px #ccc'
+                        
                 })
+
+                }).on('mouseleave','li',function(){
+                   // console.log(this)
+                   
+                    console.log($(this).find('.product').html())
+                    this.product=$(this).find('.product').html()
+                    console.log( this.product)
+                    $(this).css({
+                        top:"0px",
+                        boxShadow:''
+                    })
+                })
+                
+
+            }
+            getModel(){
+               // console.dir(window.location);
+                let 
+                    model=window.location.search,
+                    obj ={},
+                    arr;
+                model=model.slice(1);
+                model=model.split('&');
+              //  console.log(model);
+                model.forEach(item => {
+                    arr=item.split('=');
+                    obj[arr[0]]=arr[1];
+                });
+               
+                
+                //console.log(obj) ;
+                console.log(this.product);
+                $('#titleModel').html(obj.model)
+                $('.buyModel').attr('href',`http://localhost:888/html/detail.html?id=${Math.ceil(Math.random()*9)}&model=${obj.model}`)
+
             }
         }
         new ListShop
