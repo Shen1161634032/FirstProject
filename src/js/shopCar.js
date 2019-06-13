@@ -176,14 +176,21 @@ require(['./config'],()=>{
                 }
             
             }
-            //计算总计方法
+            //计算总数方法
             CalcSum(){
-                this.sum=0
+                this.sum=0;
+                this.ShopSum =0;
+                this.i = 0;
                 $('.shopPitch').each((index,item)=>{
                     if($(item).is(':checked')){
-                    this.sum += ($(item).siblings('.shopWrap').children('.shopNum').html())*($(item).siblings('p').children('.shopUnitPrice').html())
+                        this.sum += ($(item).siblings('.shopWrap').children('.shopNum').html())*($(item).siblings('p').children('.shopUnitPrice').html())
+                        this.ShopSum +=Number($(item).siblings('.shopWrap').children('.shopNum').html())
+                        this.i++;  
                     }
+                    
                 })
+                $('#shopType').html( this.i);
+                $('#ShopSum').html(this.ShopSum);
                 //console.log(this.sum)
                 $('#sumPrice').html(this.sum) ;
             }
