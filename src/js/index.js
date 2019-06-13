@@ -25,7 +25,10 @@ require(['./config'],()=>{
 
             slideShow(){
                 var mySwiper = new Swiper ('.swiper-container', {
-                    autoplay: true,
+                    autoplay: {
+                        disableOnInteraction: false,
+                        autoplay:1000
+                    },
                     speed: 1500,
                     effect: 'flip',
                     loop: true, // 循环模式选项

@@ -189,11 +189,31 @@
         }
         &-user{
             display: none;
+            position: relative;
             &-name{
 
                 float: left;
                 padding-left:20px; 
             }
+            &-name:hover{
+                color: red;
+
+            }
+            
+            &-select{
+                display: none;
+                background: #f4f4f4;
+                position: absolute;
+                z-index: 999;
+                top: 18px;
+                left: 22px;
+                
+                li{
+                    padding: 5px 20px;
+                }
+            }
+            
+            
             &-shopCar{
                 float: right;
                 padding: 0 20px;
@@ -203,4 +223,4 @@
         }
     }
 }
-//切换样式
+

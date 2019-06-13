@@ -52,7 +52,7 @@ require(['./config'], ()=>{
 
                 }).on('mouseleave','li',function(){
                    // console.log(this)
-                   
+                
                     console.log($(this).find('.product').html())
                     this.product=$(this).find('.product').html()
                     console.log( this.product)

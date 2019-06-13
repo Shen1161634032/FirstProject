@@ -23,6 +23,7 @@
             padding: 10px 0;
             width: 100%;
             &-shop{
+                margin: 10px 0;
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
@@ -76,7 +77,7 @@
     &-calc{
         width: 850px;
         height: 84px;
-        margin: 0 auto;
+        margin: 30px auto;
         padding: 0 10px;
         background: #fff;
         display:flex;

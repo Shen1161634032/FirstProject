@@ -1,4 +1,4 @@
-define(['jquery'], () => {
+define(['cookie','jquery'], (cookie) => {
     class Header{
         constructor(){
             this.header = $('header');
@@ -124,26 +124,48 @@ define(['jquery'], () => {
                     $(target).removeClass('ac');
                 }
             })
-        }
-        IsLogIn(){
-            let a =document.cookie,
 
-                obj={};
-            
-            if(a){
+            $('#Name').on('mouseenter',()=>{$('#hSelect').show()}).parent().on('mouseleave',()=>{$('#hSelect').hide()})
+            $('#hSelect').on('mouseenter','li',function(){$(this).css({background:'#ccc'})}).on('mouseleave','li',function(){$(this).css({background:''})})
+            $("#logout").on('click',()=>{
+                $.removeCookie('login',{path:'/'});
+                $('#user').css({display:"none"});
+                $('#skip').css({display:"block"});
 
-            
-            a.split('; ').forEach((item)=>{
-                var arr2 =item.split('=')
-                obj[arr2[0]]=arr2[1];
             })
-            
-            $('#user').css({display:"block"}).children('#Name').html(obj.username);
-            $('#skip').css({display:"none"});
         }
+
+
+        IsLogIn(){
+            let logState = $.cookie('login');
+            console.log(logState)
+            if(logState){
+                
+                logState = JSON.parse(logState);
+                console.log(logState)
+                $('#user').css({display:"block"}).children('#Name').html(logState.username);
+                $('#skip').css({display:"none"});
+            }
+        }
+        // IsLogIn(){
+        //     let a =document.cookie,
+
+        //         obj={};
+            
+        //     if(a){
+
+            
+        //     a.split('; ').forEach((item)=>{
+        //         var arr2 =item.split('=')
+        //         obj[arr2[0]]=arr2[1];
+        //     })
+            
+            // $('#user').css({display:"block"}).children('#Name').html(obj.username);
+            // $('#skip').css({display:"none"});
+        //}
             
 
-        }
+        // }
         
     }
     return new Header

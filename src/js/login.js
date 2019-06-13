@@ -2,30 +2,48 @@ require(['./config'],()=>{
     require(['cookie','header'],(cookie,header)=>{
         class LogIn{
             constructor(){
-                this.username = $('#username');
-                this.password = $('#password');
-                this.logInBtn = $('#logInBtn');
-                console.log( this.logInBtn);
-                console.log( this.username,this.password);
-                this.bindEvents();
+                this.bindEvents()
             }
             bindEvents(){
-                this.logInBtn.on('click',()=>{
-                    let username = this.username.val(),
-                        password = this.password.val();
-                        console.log(username,password)
-                        console.log($.cookie('username',username,{path:'/'}))
-                    if(username&&password){
-                        if($.cookie('username',username,{path:'/'})&&$.cookie('password',password,{path:'/'})){
-                            window.location.href='http://localhost:888';
-                            $('#user').css({display:'block'}).children('#Name').html(username);
-                            $('#skip').css({display:'none'});
-                        }else{
-                            console.log(1)
-                        }
+                console.log($('#logInBtn'))
+                $('#logInBtn').on('click',()=>{
+                    if($('#username').val()&&$('#password').val()){
+                        
+                            //取出cookie
+                            var userSets = $.cookie('logon');
+                            //如果注册过账户
+                                if(userSets){
+                                    userSets =JSON.parse(userSets)
+                                    console.log(userSets)
+                                    var IsLogin = userSets.some(element => {
+                                        console.log(element)
+                                        console.log( element.username==$('#username').val()&&element.password==$('#password').val())
+                                        return  (element.username==$('#username').val()&&element.password==$('#password').val())
+                                    });
+                                    console.log(IsLogin)
+                                    if(IsLogin){
+                                        $.cookie('login',JSON.stringify({
+                                            username: $('#username').val(),
+                                            password:$('#password').val()
+                                        }),{
+                                            path:'/'
+                                        })
+                                        window.location.href ='http://localhost:888/'
+                                    }else{
+                                        alert('账号或密码不正确')
+                                    }
+                                }else{
+                                    alert('账号或密码不正确') 
+                                }
+                                
+                            
+                        
+                            
+                    
                     }else{
-                       console.log(2)
-                    }
+                        alert('请输入完整的数据')
+                        
+                    } 
                 })
             }
 

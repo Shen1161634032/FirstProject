@@ -8,7 +8,8 @@ require.config({
         template:'libs/art-template/template-web',
         swiper:'libs/swiper/js/swiper.min',
         cookie:'libs/jquery-plugins/jquery.cookie',
-        etalage: 'libs/jquery-plu-etalage/jquery.etalage.min'
+        etalage: 'libs/jquery-plu-etalage/jquery.etalage.min',
+        fly:'libs/jquery-plugins/jquery.fly.min'
         
         
     },
@@ -20,6 +21,9 @@ require.config({
         },
         etalage:{
             deps: ['jquery']
+        },
+        fly:{
+            deps:['jquery']
         }
     }
 

@@ -1,5 +1,5 @@
 require(['./config'], ()=>{
-    require(['etalage','url','template','header','footer'],(etalage,url,template,header) =>{
+    require(['fly','etalage','url','template','header','footer'],(fly,etalage,url,template,header) =>{
         class Detail{
             constructor(){
                 this. receiveData();
@@ -50,8 +50,8 @@ require(['./config'], ()=>{
             bindEvents(){
                 //修改商品个数
                 $('#addData').on('click',()=>{
-                    let productNum = $('#productNum').val(),
-                        residue =$('#residue').html();
+                    let productNum = Number($('#productNum').val()),
+                        residue =($('#residue').html());
                         console.log(residue)
                         if(productNum<residue){
                             $('#productNum').val(Number($('#productNum').val())+1);
@@ -71,42 +71,64 @@ require(['./config'], ()=>{
                     //先获取当前要加入购物车的数量和数据
                     this.detail ={
                         id:this.id,
-                        image:this.resp.details.image[0],
+                        image:this.resp.details.image[0].image_list,
                         title:this.resp.name,
+                        Residue:this.resp.details.num,
                         price:this.resp.details.price,
                         num:Number($('#productNum').val())
 
                     }
-                    // 把数据存localStorage
-                    // 先取出来，判断是否为空
-                    let cartList = localStorage.getItem('cart')
-                    if(cartList){
+                    console.log(this.detail.image)
+                    if($('#residue').html()>=this.detail.num){
+
+                    
+                        // 把数据存localStorage
+                        // 先取出来，判断是否为空
+                        let cartList = localStorage.getItem('cart')
+                        if(cartList){
                         //已存过数据
-                        cartList = JSON.parse(cartList) 
+                            cartList = JSON.parse(cartList) 
                         //记录下标
-                        let i = -1;
+                            let i = -1;
                         //遍历查看是否有相同数据
-                        let isExist = cartList.some((cart,index)=>{
+                            let isExist = cartList.some((cart,index)=>{
 
                             i=index;
                             return cart.id === this.detail.id;
-                        })
-                        if(isExist){
+                            })
+                            if(isExist){
 
                             //存在相同数据
                             cartList[i].num += this.detail.num;
-                        }else{
+                            }else{
                             //不存在相同数据
                             cartList.push(this.detail)
+                            }
+                            //用修改后的值覆盖之间的值
+                            localStorage.setItem('cart',JSON.stringify(cartList))
+
+                        }else{
+                            //未存过购物车
+                            localStorage.setItem('cart',JSON.stringify([this.detail]))
                         }
-                        //用修改后的值覆盖之间的值
-                        localStorage.setItem('cart',JSON.stringify(cartList))
-
-                    }else{
-                        //未存过购物车
-                        localStorage.setItem('cart',JSON.stringify([this.detail]))
+                        let Offset = $('#shopCarIcon').offset(),
+                            img = this.detail.image,
+                            flyer = $('<img class="flyer-img" src="' + img + '" style="width:30px;height:30px">'); //抛物体对象  
+                        console.log(Offset)
+                        console.log( $('#appendCar').offset())
+                        flyer.fly({
+                            start:$('#appendCar').offset(),
+                            end:Offset,
+                            onEnd :function(){
+                                console.log(this);
+                                this.destroy();
+                            }
+                        
+                        })
+                        //计算剩余库存
+                        $('#residue').html($('#residue').html()-this.detail.num);
                     }
-
+                    
 
                 })
 
