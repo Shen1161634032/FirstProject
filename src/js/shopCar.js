@@ -60,6 +60,14 @@ require(['./config'],()=>{
                     _this.delData($(this).attr('id'))
                     $(this).parents('.shopBigBox').remove()
                     _this.CalcSum();
+                    if($(this).siblings('.shopPitch').is('checked')){
+                        _this.n--;
+                        
+                    }
+                    if(_this.n==$('.shopPitch').length){
+                        $('#checkAll').prop('checked',true)
+
+                    }
                 })
                 //商品总价计算
                 //console.log( $('.shopPitch').length)
@@ -100,10 +108,7 @@ require(['./config'],()=>{
                             _this.n+=1;
                             
                             _this.CalcSum();
-                            if(_this.n==$('.shopPitch').length){
-                                $('#checkAll').prop('checked',true)
-
-                            }
+                            
                                 
                             
                         }else{
@@ -116,6 +121,10 @@ require(['./config'],()=>{
                         }
                         console.log(_this.n)
                         _this.CalcSum();
+                        if(_this.n==$('.shopPitch').length){
+                            $('#checkAll').prop('checked',true)
+
+                        }
                     })
                 })
 
